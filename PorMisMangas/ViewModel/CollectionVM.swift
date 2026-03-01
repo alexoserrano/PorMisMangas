@@ -28,14 +28,14 @@ final class CollectionVM {
         
         let savedMangas = dataManager.loadFavorites()
         favoriteMangas = Dictionary(uniqueKeysWithValues: savedMangas.map { ($0.id, $0) })
-        print("Loaded \(savedMangas.count) favorites from SwiftData")
+        print("Cargué \(savedMangas.count) Favoritos de SwiftData")
     }
     
     private func saveFavorites() {
         guard let dataManager = dataManager else { return }
         let mangas = Array(favoriteMangas.values)
         dataManager.saveFavorites(mangas)
-        print("Saved \(mangas.count) favorites to SwiftData")
+        print("Guardé \(mangas.count) Favoritos en SwiftData")
     }
     
     func saveFavorite(_ manga: Manga) {

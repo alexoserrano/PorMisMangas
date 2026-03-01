@@ -25,9 +25,9 @@ final class DataContainer: Observable {
                     FavoriteMangaModel.self,
                     MangaCollectionModel.self
             )
-            print("ModelContainer initialized")
+            print("Inicialización ModelContainer")
         } catch {
-            fatalError("Failed to initialize ModelContainer: \(error)")
+            fatalError("Fallo de ModelContainer: \(error)")
         }
         dataManager = DataManager(modelContext: modelContainer.mainContext)
         mangasVM = MangasVM()
@@ -39,11 +39,7 @@ final class DataContainer: Observable {
     }
     
     private func configureViewModels() {
-        print("Configuring ViewModels with SwiftData...")
         profileVM.configure(with: dataManager)
-        print("ProfileVM configured")
         collectionVM.configure(with: dataManager)
-        print("CollectionVM configured")
-        print("All ViewModels configured successfully")
     }
 }

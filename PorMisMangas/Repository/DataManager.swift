@@ -38,7 +38,7 @@ final class DataManager {
             
             try modelContext.save()
         } catch {
-            print("Error saving profile: \(error)")
+            print("Error al guardar el perfil: \(error)")
         }
     }
     
@@ -63,7 +63,7 @@ final class DataManager {
                 ownedVolumes: ownedVolumes
             )
         } catch {
-            print("Error loading profile: \(error)")
+            print("Error al cargar el perfil: \(error)")
             return nil
         }
     }
@@ -83,7 +83,7 @@ final class DataManager {
             
             try modelContext.save()
         } catch {
-            print("Error saving favorites: \(error)")
+            print("Error al guardar favoritos: \(error)")
         }
     }
     
@@ -96,7 +96,7 @@ final class DataManager {
             let favorites = try modelContext.fetch(descriptor)
             return favorites.map { $0.toManga() }
         } catch {
-            print("Error loading favorites: \(error)")
+            print("Error al cargar favoritos: \(error)")
             return []
         }
     }
@@ -126,7 +126,7 @@ final class DataManager {
             
             try modelContext.save()
         } catch {
-            print("Error saving manga collection: \(error)")
+            print("Error al guardar colección de mangas: \(error)")
         }
     }
     
@@ -139,7 +139,7 @@ final class DataManager {
                 collections.map { ($0.mangaID, $0.toMangaCollection()) }
             )
         } catch {
-            print("Error loading collections: \(error)")
+            print("Error al cargar colección de mangas: \(error)")
             return [:]
         }
     }
@@ -154,7 +154,7 @@ final class DataManager {
             collections.forEach { modelContext.delete($0) }
             try modelContext.save()
         } catch {
-            print("Error deleting collection: \(error)")
+            print("Error borrando colección: \(error)")
         }
     }
 }

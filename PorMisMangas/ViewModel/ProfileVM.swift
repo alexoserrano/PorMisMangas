@@ -31,16 +31,16 @@ final class ProfileVM {
         
         if let savedProfile = dataManager.loadProfile() {
             self.profile = savedProfile
-            print("Profile loaded from SwiftData")
+            print("Perfil cargado desde SwiftData")
         } else {
-            print("No saved profile found, using default")
+            print("No hay perfiles guardados, usar default")
         }
     }
     
     private func saveProfile() {
         guard let dataManager = dataManager else { return }
         dataManager.saveProfile(profile)
-        print("Profile saved to SwiftData")
+        print("Perfil Salvado")
     }
     
     func getFavoriteManga(from mangas: [Manga]) -> Manga? {
